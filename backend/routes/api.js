@@ -12,6 +12,9 @@ import * as reviewController from "../app/controllers/ReviewController.js"
 import * as FeaturesController from "../app/controllers/FeaturesController.js"
 
 //User
+router.get("/",(req,res)=>{
+  res.json({abc:"hello"})  
+})
 router.post("/login",userController.login);
 router.post("/VerifyLogin",userController.VerifyLogin);
 router.post("/CreateUserProfile",AuthMiddleware,userController.CreateUserProfile);
