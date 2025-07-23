@@ -10,8 +10,7 @@ import path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import cookieParser from "cookie-parser";
-
-
+import dotenv from 'dotenv';
 
 // Fix __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -19,11 +18,13 @@ const __dirname = dirname(__filename);
 
 const app=express();
 
+dotenv.config();
 //App Use Default Middleware
 // app.use(cors());
+console.log(process.env.ALLOW_URL)
 app.use(
   cors({
-    origin: "http://localhost:5173", // your frontend URL
+    origin: process.env.ALLOW_URL, // your frontend URL
     credentials: true,               // allow cookies to be sent
   })
 );
